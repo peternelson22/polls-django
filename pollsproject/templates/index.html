@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+<h1 class="mt-5 text-center text-info">The Questions</h1>
+
+                {% for question in questions %}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <p class="lead text-center">{{question.question_text}}</p>
+                            <a href="{% url 'detail' question.id %}" class="btn btn-danger btn-sm">Vote</a>
+                            <a href="{% url 'results' question.id %}" class="btn btn-success btn-sm">Results</a>
+
+                        </div>
+
+                    </div>
+                {% endfor %}
+       
+{% endblock %}
